@@ -7,6 +7,8 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float speed;
     [SerializeField] private float rotationSpeed;
+
+    [SerializeField] public ParticleSystem crashParticle;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +31,7 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject. CompareTag("Finish"))
         {
+            
             Destroy(other.gameObject, 0.2f);
         }
     }

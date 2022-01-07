@@ -10,6 +10,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/../hsm-wise2021-prototype102-castle-notmine-merve-simsek/Assets/Scripts/emitParticles.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
   <component name="ProjectId" id="23MUFAMKxuCI7RlGaoCloeh6HuU" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -52,7 +55,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1641543402090</updated>
-      <workItem from="1641543433228" duration="1840000" />
+      <workItem from="1641543433228" duration="2548000" />
+      <workItem from="1641555440852" duration="1343000" />
     </task>
     <servers />
   </component>
