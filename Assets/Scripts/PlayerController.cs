@@ -7,8 +7,10 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float speed;
     [SerializeField] private float rotationSpeed;
-
-    [SerializeField] public ParticleSystem crashParticle;
+    public GameObject target;
+    public ParticleSystem crashParticle;
+    
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -25,14 +27,25 @@ public class PlayerController : MonoBehaviour
         {
             transform.Rotate(new Vector3(0,0,15) * Time.deltaTime * rotationSpeed);
         }
+
+        if (speed <= 0)
+        {
+            Debug.Log("GameOver!");
+        }
     }
 
     private void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject. CompareTag("Finish"))
+        if (other.gameObject.CompareTag("Finish"))
         {
-            
-            Destroy(other.gameObject, 0.2f);
+
+            crashParticle.Play();
+            Destroy(other.gameObject, 1f);
+        }
+        
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            speed -= 5f;
         }
     }
 }
