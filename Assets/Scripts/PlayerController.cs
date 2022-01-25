@@ -9,10 +9,15 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float rotationSpeed;
     public GameObject[] targets;
+    public GameObject bottle;
     public ParticleSystem crashParticle;
     public float timer;
+    private bool startGame;
     public TextMeshProUGUI timerText;
+    //public TextMeshProUGUI collisionText;
+    private int collisions;
     public GameObject winPanel;
+    public GameObject instructionPanel;
     public TextMeshProUGUI timeStopped;
     public int lenghtArray;
     
@@ -20,24 +25,44 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        speed = 25f;
-        rotationSpeed = 15f;
+        startGame = false;
+        bottle.SetActive(true);
+        speed = 50f;
+        rotationSpeed = 10f;
         winPanel.SetActive(false);
+        collisions = 3;
+        instructionPanel.SetActive(true);
     }
 
     // Update is called once per frame
     void Update()
     {
-        DisplayTime();
-        
-        transform.Translate(Vector3.up * Time.deltaTime * speed);
+        if (Input.GetKey(KeyCode.S)&& startGame==false)
+        {
+            instructionPanel.SetActive(false);
+        }       
 
-        if (Input.GetKey(KeyCode.Space))
+        //collisionText.text = "Allowed Collisions: " + collisions;
+        
+        if (Input.GetKey(KeyCode.Space)&& startGame==false)
+        {
+            bottle.SetActive(false);
+            startGame = true;
+        }
+        
+        if (startGame == true)
+        {
+            DisplayTime();
+            transform.Translate(Vector3.up * Time.deltaTime * speed);
+        }
+        
+
+        if (Input.GetKey(KeyCode.Space)&& startGame==true)
         {
             transform.Rotate(new Vector3(0,0,15) * Time.deltaTime * rotationSpeed);
         }
 
-        if (speed <= 5f)
+        if (collisions <= 0)
         {
             GameOver();
             Debug.Log("GameOver!");
@@ -65,7 +90,9 @@ public class PlayerController : MonoBehaviour
         
         if (other.gameObject.CompareTag("Enemy"))
         {
-            speed /= 2f;
+            speed /= 1.5f;
+            collisions--;
+            
         }
     }
 
