@@ -11,6 +11,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/ReloadScene.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../hsm-wise2021-prototype102-castle-notmine-merve-simsek/Assets/Scripts/emitParticles.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="23MUFAMKxuCI7RlGaoCloeh6HuU" />
@@ -58,7 +59,7 @@
       <workItem from="1641543433228" duration="2548000" />
       <workItem from="1641555440852" duration="1758000" />
       <workItem from="1641981931019" duration="15188000" />
-      <workItem from="1643115812793" duration="4479000" />
+      <workItem from="1643115812793" duration="16245000" />
     </task>
     <servers />
   </component>

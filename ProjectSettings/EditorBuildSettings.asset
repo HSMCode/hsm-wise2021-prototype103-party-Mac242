@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/PartyCrasher.unity
+    guid: 91c9e8d84ee3d4fa9a8ed9521e664a25
   m_configObjects: {}
