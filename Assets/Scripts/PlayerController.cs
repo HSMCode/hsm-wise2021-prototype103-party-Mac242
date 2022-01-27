@@ -14,7 +14,8 @@ public class PlayerController : MonoBehaviour
     public GameObject[] targets; // array with the targets(beer)
     public GameObject bottle;
     public float timer; // Time
-    private bool startGame; // asking if game has started
+    private bool startGame;
+    private bool instructionRead;// asking if game has started
     private int collisions; // allowed Collisions
     public int lenghtArray; //Lenght of Array
     public ParticleSystem crashParticle; // particle for hitting beer
@@ -40,23 +41,24 @@ public class PlayerController : MonoBehaviour
         losePanel.SetActive(false);
         GetComponent<AudioSource>();
         audioClip[3].Play();
+        instructionRead = false;
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.S)&& startGame==false) // Getting the game almost started
+        if (Input.GetKey(KeyCode.S)&& startGame==false && instructionRead==false) // Getting the game almost started
         {
             instructionPanel.SetActive(false);
             audioClip[2].Play();
             audioClip[3].Pause();
-            
+            instructionRead = true;
         }       
 
         //collisionText.text = "Allowed Collisions: " + collisions;
         
-        if (Input.GetKey(KeyCode.Space)&& startGame==false) //cork is in the bottle, space to release the cork
+        if (Input.GetKey(KeyCode.Space)&& startGame==false && instructionRead ==true) //cork is in the bottle, space to release the cork
         {
             bottle.SetActive(false);
             startGame = true; // cork is released
@@ -122,7 +124,7 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("Respawn")) // rotate the Player if he collides with the bounds
         {
 
-            gameObject.transform.Rotate(0,0,90 );
+            gameObject.transform.Rotate(0,0,180 );
         }
     }
 
